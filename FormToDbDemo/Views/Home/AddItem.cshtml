@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "AddItem";
+}
+
+<h2>Add Equipment Item to Database</h2>
+@using (Html.BeginForm())
+{
+    <p>Name of item: @Html.TextBox("Name")</p>
+    <input type="submit" value="Submit Item" />
+}
+
+@* The model binder will know that we are submitting
+   back to the AddItem controller method.
+   The AddItem method takes an Equipment object as
+   an argument, and so the model binder will
+   bind the "Name" TextBox to Equipment.Name
+*@

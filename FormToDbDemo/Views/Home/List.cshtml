@@ -1,0 +1,12 @@
+﻿@model IEnumerable<FormToDbDemo.Models.Equipment>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Equipment List</h2>
+
+@foreach(var equipItem in Model)
+{
+    <p>@equipItem.Name:  @(equipItem.CheckedOut ? "Checked out" : "Available")</p>
+}

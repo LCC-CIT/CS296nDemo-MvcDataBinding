@@ -1,0 +1,13 @@
+﻿@model IEnumerable<FormToDbDemo.Models.Equipment>
+
+@{
+    ViewBag.Title = "Init";
+}
+
+<h2>Initialization Page</h2>
+
+Initialization has cleared the dataase and added the following equipment items:
+@foreach(var equipItem in Model)
+{
+    <p>@equipItem.Name</p>
+}

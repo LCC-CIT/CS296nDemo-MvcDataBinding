@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FormToDbDemo.Models.Equipment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ASP.NET MVC 4 Form Databinding Demo</h2>
+
+This web app demonstrates how to write a view that contains a form
+and how to get the information from that form into a database. It also shows 
+you how the MVC databinding works. 
+
+<h3>Administration</h3>
+@Html.ActionLink("Initialize the database", "Init")
+@Html.ActionLink("Add an equipment item  to the database", "AddItem")
+<br />
