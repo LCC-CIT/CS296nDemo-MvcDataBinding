@@ -47,5 +47,24 @@ namespace FormToDbDemo.Controllers
             repo.SaveItem(item);
             return RedirectToAction("List");
         }
+
+        public ActionResult CheckOutItems()
+        {
+            var repo = new EquipmentRepo();
+            var equipItems = repo.Equipments.ToList();
+            return View(equipItems);
+        }
+
+
+        [HttpPost]
+        public ActionResult CheckOutItems(IEnumerable<Equipment> items)
+        {
+            var repo = new EquipmentRepo();
+            foreach (var item in items)
+            {
+                repo.UpdateItem(item);
+            }
+            return RedirectToAction("List");
+        }
     }
 }

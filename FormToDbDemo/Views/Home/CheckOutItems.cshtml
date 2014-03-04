@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FormToDbDemo.Models.Equipment>
+
+@{
+    ViewBag.Title = "Check Out Items";
+}
+
+<h2>CheckOutItem</h2>
+@using (Html.BeginForm())
+{
+    foreach(var equipItem in Model)
+    {
+        <p>@equipItem.Name:  @Html.CheckBox("Checked out", equipItem.CheckedOut, new { id = "Equipment.CheckedOut" })</p>
+    }
+    <input type="submit" value="Submit Items" />
+}
