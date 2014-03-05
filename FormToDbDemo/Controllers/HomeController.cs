@@ -66,5 +66,24 @@ namespace FormToDbDemo.Controllers
             }
             return RedirectToAction("List");
         }
+
+
+        public ActionResult CheckOutItem()
+        {
+            var repo = new EquipmentRepo();
+            var equipItems = repo.Equipments.ToList();
+            return View(equipItems);
+        }
+
+
+        [HttpPost]
+        public ActionResult CheckOutItem(int equipmentId)
+        {
+            var repo = new EquipmentRepo();
+            var equipItem = repo.Equipments.FirstOrDefault(e => e.EquipmentId == equipmentId);
+            equipItem.CheckedOut = true;
+            repo.UpdateItem(equipItem);
+            return RedirectToAction("List");
+        }
     }
 }

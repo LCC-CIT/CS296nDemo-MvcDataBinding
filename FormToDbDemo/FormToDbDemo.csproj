@@ -227,6 +227,7 @@
     <Content Include="Views\Home\AddItems.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Home\CheckOutItems.cshtml" />
+    <Content Include="Views\Home\CheckOutItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

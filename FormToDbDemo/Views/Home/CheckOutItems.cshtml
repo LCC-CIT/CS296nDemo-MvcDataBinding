@@ -4,14 +4,14 @@
     ViewBag.Title = "Check Out Items";
 }
 
-<h2>CheckOutItem</h2>
+<h2>Check Out Equipment Items</h2>
 @using (Html.BeginForm())
 {
     for (int i = 0; i < Model.Count(); i++ )
     {
         //<p>@equipItem.Name:  @Html.CheckBox("Checked out", equipItem.CheckedOut, new { id = "Equipment.CheckedOut" })</p>
         <fieldset>
-            <legend>Equipment @(i + 1)</legend>
+            <legend>Equipment Item @(i + 1)</legend>
             <div><label>Name:</label>@Html.TextBox("[" + i + "].Name", Model.ElementAt(i).Name)</div>
             <div><label>CheckedOut:</label>@Html.CheckBox("[" + i + "].CheckedOut", Model.ElementAt(i).CheckedOut)</div>
             @Html.Hidden("[" + i + "].EquipmentId", Model.ElementAt(i).EquipmentId)
