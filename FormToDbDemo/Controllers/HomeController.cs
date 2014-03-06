@@ -72,15 +72,21 @@ namespace FormToDbDemo.Controllers
         {
             var repo = new EquipmentRepo();
             var equipItems = repo.Equipments.ToList();
-            return View(equipItems);
+            List<SelectListItem> equipList = new List<SelectListItem>();
+            foreach (var item in equipItems)
+                equipList.Add(new SelectListItem { Text = item.Name, Value = item.EquipmentId.ToString() });
+
+            ViewBag.EquipList = equipList; 
+            return View();
         }
 
 
         [HttpPost]
-        public ActionResult CheckOutItem(int equipmentId)
+        public ActionResult CheckOutItem(string equipList)
         {
+            int equipId = Int32.Parse(equipList);
             var repo = new EquipmentRepo();
-            var equipItem = repo.Equipments.FirstOrDefault(e => e.EquipmentId == equipmentId);
+            var equipItem = repo.Equipments.FirstOrDefault(e => e.EquipmentId == equipId);
             equipItem.CheckedOut = true;
             repo.UpdateItem(equipItem);
             return RedirectToAction("List");
