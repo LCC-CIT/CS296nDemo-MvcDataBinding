@@ -53,5 +53,27 @@ namespace FormToDbDemo.DAL
                 return false;
             }
         }
+
+        public bool UpdateItem(Equipment item)
+        {
+            var db = new EquipDBContext();
+            // Find the item we are changing
+            var dbItem = db.Equipments.FirstOrDefault(e => e.EquipmentId == item.EquipmentId);
+            if (null != dbItem)
+            {
+                // Copy properties- this is how we incorporate the changes
+                dbItem.Name = item.Name;
+                dbItem.CheckedOut = item.CheckedOut;
+
+                // save the changes to the database
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

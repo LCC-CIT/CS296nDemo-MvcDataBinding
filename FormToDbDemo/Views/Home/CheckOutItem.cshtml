@@ -1,0 +1,17 @@
+﻿@model IEnumerable<FormToDbDemo.Models.Equipment>
+@using System.Collections.Generic
+
+@{
+    ViewBag.Title = "CheckOutItem";
+}
+
+<h2>Check Out Item</h2>
+
+@{SelectList names = new SelectList(Model,"EquipmentId", "Name");}
+
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("item",names)
+    <input type="submit" value="Submit Item" />
+}
