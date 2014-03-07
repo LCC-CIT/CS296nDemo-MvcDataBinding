@@ -224,7 +224,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Init.cshtml" />
-    <Content Include="Views\Home\AddItems.cshtml" />
+    <Content Include="Views\Home\AddItem.cshtml" />
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Home\CheckOutItems.cshtml" />
     <Content Include="Views\Home\CheckOutItem.cshtml" />
